@@ -79,7 +79,7 @@ target/
 
 # IPython
 profile_default/
-ipython_config.py
+ipython_config.pyf
 
 # pyenv
 .python-version
@@ -132,6 +132,7 @@ dmypy.json
 django_backend/node_modules/*
 /node_modules/
 node_modules
+package-lock.json
 
 # local files
 ../db.txt
