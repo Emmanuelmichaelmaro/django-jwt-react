@@ -1,0 +1,35 @@
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+
+# Set default charset for JavaScript and Python
+[*.{js,py}]
+charset = utf-8
+
+# Python settings
+[*.{py,rst,ini}]
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+line_length = 120
+
+# JavaScript, JSX, CSS, SCSS, HTML, JSON, YAML settings
+[*.{js,jsx,css,scss,html,json,yml}]
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+# Markdown settings
+[*.md]
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab
+
+[nginx.conf]
+indent_style = space
+indent_size = 4
