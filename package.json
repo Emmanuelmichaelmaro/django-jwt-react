@@ -2,17 +2,36 @@
     "name": "django-jwt-react",
     "version": "1.0.0",
     "description": "Complete JWT Authentication with Django &amp; React - 2020",
-    "main": "index.js",
+    "main": "frontend/src/index.js",
     "scripts": {
-        "build": "webpack --config webpack.config.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "webpack --config webpack.config.js"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
+    "keywords": [
+        "react",
+        "django",
+        "authentication",
+        "jwt",
+        "api"
+    ],
+    "author": {
+        "name": "Emmanuel Michael Maro",
+        "email": "emmanuelmaro733@gmail.com",
+        "url": "https://magicianemima.co.tz"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Emmanuelmichaelmaro/django-jwt-react.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Emmanuelmichaelmaro/django-jwt-react/issues"
+    },
+    "homepage": "https://github.com/Emmanuelmichaelmaro/django-jwt-react",
+    "license": "MIT",
     "dependencies": {
+        "axios": "^0.20.0",
         "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "react-dom": "^16.13.1",
+        "react-router-dom": "^5.2.0"
     },
     "devDependencies": {
         "@babel/core": "^7.11.6",
@@ -21,5 +40,14 @@
         "babel-loader": "^8.1.0",
         "webpack": "^5.1.0",
         "webpack-cli": "^4.0.0"
-    }
+    },
+    "engines": {
+        "node": ">= 6.0.0",
+        "npm": ">= 3.0.0"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ]
 }
