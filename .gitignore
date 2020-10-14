@@ -127,3 +127,37 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# NPM files
+django_backend/node_modules/*
+/node_modules/
+node_modules
+
+# local files
+../db.txt
+../notes.txt
+../notes_for_client.txt
+../info.txt
+info.txt
+notes_for_client.txt
+notes.txt
+db.txt
+secrets.sh
+static_cdn/
+media_cdn/
+uploads/
+../rootkey.csv
+.idea/
+.~lock.rootkey.csv#
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+.~lock.rootkey.csv#
+
+*.pyc
+*.DS_Store
+
+# development react files
+save_for_reference/*
