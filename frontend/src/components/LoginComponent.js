@@ -9,6 +9,7 @@ export default class LoginComponent extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmitWThen = this.handleSubmitWThen.bind(this);
     }
 
     handleChange(event) {
@@ -17,19 +18,19 @@ export default class LoginComponent extends Component {
 
     async handleSubmit(event) {
         event.preventDefault();
-        
+
         try {
             const response = axiosInstance.post('/token/obtain/', {
                 username: this.state.username,
                 password: this.state.password
             });
-        
+
             axiosInstance.defaults.headers['Authorization'] = "JWT " + response.data.access;
-        
+
             localStorage.setItem('access_token', response.data.access);
             localStorage.setItem('refresh_token', response.data.refresh);
-        
-            return data;
+
+            return response;
         } catch (error) {
             throw error;
         }
@@ -37,13 +38,14 @@ export default class LoginComponent extends Component {
 
     handleSubmitWThen(event) {
         event.preventDefault();
-        
+
         axiosInstance.post('/token/obtain/', {
                 username: this.state.username,
                 password: this.state.password
             }).then(
                 result => {
                     axiosInstance.defaults.headers['Authorization'] = "JWT " + result.data.access;
+
                     localStorage.setItem('access_token', result.data.access);
                     localStorage.setItem('refresh_token', result.data.refresh);
                 }
@@ -62,12 +64,12 @@ export default class LoginComponent extends Component {
                         Username:
                         <input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
                     </label>
-                    
+
                     <label>
                         Password:
                         <input name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
                     </label>
-                    
+
                     <input type="submit" value="Submit"/>
                 </form>
             </div>

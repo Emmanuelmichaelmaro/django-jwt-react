@@ -6,22 +6,23 @@ from .models import CustomUser
 # Create your serializers here.
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
-    
+
     @classmethod
     def get_token(cls, user):
-    
+
         token = super().get_token(user)
 
         # Add custom claims
         token['fav_color'] = user.fav_color
+        token['username'] = user.username
         # ...
 
         return token
 
 class MyTokenObtainPairView(TokenObtainPairView):
-    
+
     serializer_class = MyTokenObtainPairSerializer
-    
+
 class CustomUserSerializer(serializers.ModelSerializer):
 
     """

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axiosInstance from '../services/axiosApi'
 
 export class SignUpComponent extends Component {
     constructor(props) {
@@ -7,7 +8,8 @@ export class SignUpComponent extends Component {
         this.state = {
             username: "",
             password: "",
-            email: ""
+            email: "",
+            errors:{}
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -20,18 +22,18 @@ export class SignUpComponent extends Component {
 
     async handleSubmit(event) {
         event.preventDefault();
-    
+
         try {
             const response = await axiosInstance.post('/user/create/', {
                 username: this.state.username,
                 email: this.state.email,
                 password: this.state.password
             });
-    
+
             return response;
         } catch (error) {
             console.log(error.stack);
-    
+
             this.setState({
                 errors:error.response.data
             });
@@ -48,17 +50,17 @@ export class SignUpComponent extends Component {
                         Username:
                         <input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
                     </label>
-                    
+
                     <label>
                         Email:
                         <input name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
                     </label>
-                    
+
                     <label>
                         Password:
                         <input name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
                     </label>
-                    
+
                     <input type="submit" value="Submit"/>
                 </form>
             </div>

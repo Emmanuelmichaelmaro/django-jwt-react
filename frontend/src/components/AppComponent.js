@@ -1,15 +1,17 @@
 import React, { Component} from "react";
 import { Link, Route, Switch } from "react-router-dom";
-import HelloComponent from "./HelloComponent";
 
+import HelloComponent from "./HelloComponent";
 import LoginComponent from "./LoginComponent";
 import SignUpComponent from "./SignUpComponent";
+
+import axiosInstance from '../services/axiosApi';
 
 class AppComponent extends Component {
 
     constructor() {
         super();
-        
+
         this.handleLogout = this.handleLogout.bind(this);
     }
 
@@ -18,12 +20,12 @@ class AppComponent extends Component {
             const response = await axiosInstance.post('/blacklist/', {
                 "refresh_token": localStorage.getItem("refresh_token")
             });
-            
+
             localStorage.removeItem('access_token');
             localStorage.removeItem('refresh_token');
-            
+
             axiosInstance.defaults.headers['Authorization'] = null;
-            
+
             return response;
         }
         catch (e) {
@@ -40,10 +42,10 @@ class AppComponent extends Component {
                     <Link className={"nav-link"} to={"/signup/"}>Signup</Link>
                     <Link className={"nav-link"} to={"/hello/"}>Hello</Link>
                 </nav>
-                
+
                 <main>
                     <h1>Ahhh after 10,000 years I'm free. Time to conquer the Earth!</h1>
-                    
+
                     <Switch>
                         <Route exact path={"/login/"} component={LoginComponent}/>
                         <Route exact path={"/signup/"} component={SignUpComponent}/>
