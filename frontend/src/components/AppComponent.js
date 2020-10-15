@@ -1,5 +1,6 @@
 import React, { Component} from "react";
-import { Route, Switch } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
+import HelloComponent from "./HelloComponent";
 
 import LoginComponent from "./LoginComponent";
 import SignUpComponent from "./SignUpComponent";
@@ -12,6 +13,7 @@ class AppComponent extends Component {
                     <Link className={"nav-link"} to={"/"}>Home</Link>
                     <Link className={"nav-link"} to={"/login/"}>Login</Link>
                     <Link className={"nav-link"} to={"/signup/"}>Signup</Link>
+                    <Link className={"nav-link"} to={"/hello/"}>Hello</Link>
                 </nav>
                 
                 <main>
@@ -20,6 +22,7 @@ class AppComponent extends Component {
                     <Switch>
                         <Route exact path={"/login/"} component={LoginComponent}/>
                         <Route exact path={"/signup/"} component={SignUpComponent}/>
+                        <Route exact path={"/hello/"} component={HelloComponent}/>
                         <Route path={"/"} render={() => <div>Home again</div>}/>
                     </Switch>
                 </main>
